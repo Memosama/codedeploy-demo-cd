@@ -1,0 +1,27 @@
+version: 0.0
+os: linux
+files:
+  - source: confs/nginx/vhost.conf
+    destination: /etc/nginx/conf.d/vhost.conf
+  - source: confs/nginx/nginx.repo
+    destination: /etc/yum.repos.d/nginx.repo
+  - source: confs/php-fpm/www.conf
+    destination: /etc/php-fpm.d/www.conf
+  - source: scripts
+    destination: /usr/local/bin
+  - source: /
+    destination: /var/www/app-v1
+permissions:
+ - object: /var/www/app-v1
+    owner: www-data
+    group: www-data
+    mode: 755
+    type:
+      - directory
+hooks:
+  ApplicationStop:
+    - location: deregister_from_elb.sh
+    - location: stop_server.sh
+  ApplicationStart:
+    - location: start_server.sh
+    - location: register_with_elb.sh
