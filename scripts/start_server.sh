@@ -4,7 +4,7 @@ wget https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
 wget http://rpms.remirepo.net/enterprise/remi-release-7.rpm
 rpm -Uvh remi-release-7.rpm epel-release-latest-7.noarch.rpm
 yum-config-manager --enable remi-php72
-sudo yum -y install nginx php-fpm
+sudo yum -y install nginx php-fpm awscli
 mkdir -p /tmp/wordpress-cache
 chown -R nginx:nginx /tmp/wordpress-cache
 chmod -R 700 /tmp/wordpress-cache
