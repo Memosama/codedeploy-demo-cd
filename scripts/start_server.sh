@@ -8,6 +8,7 @@ yum-config-manager --enable remi-php72
 sudo yum -y install nginx php-fpm
 useradd www-data
 mkdir -p /tmp/wordpress-cache
+mkdir -p /var/www
 chown -R nginx:nginx /tmp/wordpress-cache
 chmod -R 700 /tmp/wordpress-cache
 service nginx start
