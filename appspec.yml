@@ -7,8 +7,6 @@ files:
     destination: /etc/yum.repos.d/nginx.repo
   - source: confs/php-fpm/www.conf
     destination: /etc/php-fpm.d/www.conf
-  - source: scripts
-    destination: /usr/local/bin
   - source: /
     destination: /var/www/app-v1
 permissions:
@@ -20,8 +18,8 @@ permissions:
       - directory
 hooks:
   ApplicationStop:
-    - location: /usr/local/bin/deregister_from_elb.sh
-    - location: /usr/local/bin/stop_server.sh
+    - location: scripts/deregister_from_elb.sh
+    - location: scripts/stop_server.sh
   ApplicationStart:
-    - location: /usr/local/bin/start_server.sh
-    - location: /usr/local/bin/register_with_elb.sh
+    - location: scripts/start_server.sh
+    - location: scripts/register_with_elb.sh
