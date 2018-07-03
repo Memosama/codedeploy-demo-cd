@@ -2,11 +2,11 @@ version: 0.0
 os: linux
 files:
   - source: confs/nginx/vhost.conf
-    destination: /etc/nginx/conf.d/vhost.conf
+    destination: /etc/nginx/conf.d
   - source: confs/nginx/nginx.repo
-    destination: /etc/yum.repos.d/nginx.repo
+    destination: /etc/yum.repos.d
   - source: confs/php-fpm/vhost.conf
-    destination: /etc/php-fpm.d/vhost.conf
+    destination: /etc/php-fpm.d
   - source: /
     destination: /var/www/app-v1
 permissions:
