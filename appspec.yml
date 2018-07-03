@@ -18,8 +18,6 @@ permissions:
       - directory
 hooks:
   ApplicationStop:
-    - location: scripts/deregister_from_elb.sh
     - location: scripts/stop_server.sh
   ApplicationStart:
     - location: scripts/start_server.sh
-    - location: scripts/register_with_elb.sh
